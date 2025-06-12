@@ -44,52 +44,71 @@ public:
         queue_array[REAR] = num;
     }
 
-    void remove(){
-        //cek apakah antrian kosong
-        if (FRONT == -1) {
-            cout <<"Queue underflow\n";
+    void remove()
+    {
+        // cek apakah antrian kosong
+        if (FRONT == -1)
+        {
+            cout << "Queue underflow\n";
             return;
         }
-        cout << "\nElement deleted from the queue is:" << queue_array[FRONT]<<"\n";
+        cout << "\nElement deleted from the queue is:" << queue_array[FRONT] << "\n";
         // cek jika antrian memiliki satu elementr
-        if(FRONT == REAR) {
+        if (FRONT == REAR)
+        {
             FRONT = -1;
             REAR = -1;
-
         }
-        else{
-            // jika element yg dihapus adalah posisi terahir array 
-            if (FRONT == max -1)
-                FRONT =0;
-            else 
-            FRONT = FRONT +1;
+        else
+        {
+            // jika element yg dihapus adalah posisi terahir array
+            if (FRONT == max - 1)
+                FRONT = 0;
+            else
+                FRONT = FRONT + 1;
         }
     }
 
-    void display(){
+    void display()
+    {
         int FRONT_position = FRONT;
         int REAR_position = REAR;
         // cek apakah antrian kosong []
-        if (FRONT == 1){
+        if (FRONT == 1)
+        {
             cout << "Queue is empty\n";
             return;
         }
         cout << "nElements in the queue are ...\n";
-        //jika FRONT_position <= REAR_position iterasi dan FRONT
-        if (FRONT_position <= REAR_position){
-            while(FRONT_position <= REAR_position){
-                cout << queue_array[FRONT_position]<< "  ";
+        // jika FRONT_position <= REAR_position iterasi dan FRONT
+        if (FRONT_position <= REAR_position)
+        {
+            while (FRONT_position <= REAR_position)
+            {
+                cout << queue_array[FRONT_position] << "  ";
                 FRONT_position++;
             }
             cout << endl;
         }
-        else{
-            //jika FRONT_position > REAR_position,
-            //iterasi dari FRONT hingga akhir array
-            while (FRONT_position <= max -1){
+        else
+        {
+            // jika FRONT_position > REAR_position,
+            // iterasi dari FRONT hingga akhir array
+            while (FRONT_position <= max - 1)
+            {
                 cout << queue_array[FRONT_position] << "  ";
                 FRONT_position++;
             }
+            FRONT_position = 0;
+
+            // iterasi dari awal array hingga REAR
+
+            while (FRONT_position <= REAR_position) {
+                cout << queue_array[FRONT_position] <<" ";
+                FRONT_position++;
+
+            }
+            cout << endl;
         }
     }
 };
