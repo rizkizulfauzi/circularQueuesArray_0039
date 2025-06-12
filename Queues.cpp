@@ -50,5 +50,19 @@ public:
             cout <<"Queue underflow\n";
             return;
         }
+        cout << "\nElement deleted from the queue is:" << queue_array[FRONT]<<"\n";
+        // cek jika antrian memiliki satu elementr
+        if(FRONT == REAR) {
+            FRONT = -1;
+            REAR = -1;
+
+        }
+        else{
+            // jika element yg dihapus adalah posisi terahir array 
+            if (FRONT == max -1)
+                FRONT =0;
+            else 
+            FRONT = FRONT +1;
+        }
     }
 };
